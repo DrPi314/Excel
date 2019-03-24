@@ -20,8 +20,8 @@ def numrows():
     num_rows = 0
     for row_index in range(9, cs.nrows):
         cell_val = cs.cell(row_index, 1)
-        print(cell_val)
         if cell_val != '':
+            print(cell_val, 'filled')
             num_rows += 1
         else:
             break
