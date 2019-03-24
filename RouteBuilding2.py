@@ -18,12 +18,13 @@ routes_t = []
 
 def numrows():
     num_rows = 0
-    for row_index in range(9, 50):
-        cell_val = cs.cell(row_index, 6)
+    for row_index in range(9, cs.nrows):
+        cell_val = cs.cell(row_index, 1)
+        print(cell_val)
         if cell_val != '':
             num_rows += 1
-            continue
         else:
-            print(num_rows)
-            
-#print(numrows())
+            break
+    return(num_rows)
+    
+print(numrows())
