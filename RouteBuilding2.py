@@ -29,14 +29,15 @@ def numrows():
 
 def stops():
     for row_index in range(hr, numrows()):
-        for col_index in range(1,6):
+        stops_t_row = []
+        for col_index in range(1,6): 
             cell_val = cs.cell(row_index, col_index).value
             if cs.cell_type(row_index, col_index) == xlrd.XL_CELL_DATE:
                 my_time = float(cell_val*24)
-                stops_t.append(my_time)
+                stops_t_row.append(my_time)
             else:
-                stops_t.append(cell_val)
-        stops_t.append
+                stops_t_row.append(cell_val)
+        stops_t.append(stops_t_row)
     return stops_t
                 
 print(stops())
