@@ -12,7 +12,6 @@ wb = xlrd.open_workbook("E:/OneDrive/Documents/Work/BDS/Orders/201901/0128-0202/
 cs = wb.sheet_by_name('ORDERFORM')
 hr = 9
 num_columns = 6
-stops_t = []
 routes_t = []
 
 
@@ -28,16 +27,25 @@ def numrows():
     
 
 def stops():
-    for row_index in range(hr, numrows()):
-        stops_t_row = []
+    for row_index in range(hr, numrows() + hr):
+        stop = []
+        route = []
         for col_index in range(1,6): 
             cell_val = cs.cell(row_index, col_index).value
             if cs.cell_type(row_index, col_index) == xlrd.XL_CELL_DATE:
                 my_time = float(cell_val*24)
-                stops_t_row.append(my_time)
+                stop.append(my_time)
             else:
-                stops_t_row.append(cell_val)
-        stops_t.append(stops_t_row)
-    return stops_t
-                
+                stop.append(cell_val)
+        print(stop[3])
+        for stop[3] in stop:
+            i = 1
+            if stop[3] == i:
+                route.append(stop)
+            else:
+                routes_t.append(route)
+                i += 1
+    return(routes_t)
+
+           
 print(stops())
