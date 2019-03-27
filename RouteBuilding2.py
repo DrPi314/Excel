@@ -30,6 +30,7 @@ def stops():
     for row_index in range(hr, numrows() + hr):
         stop = []
         route = []
+        i = 1
         for col_index in range(1,6): 
             cell_val = cs.cell(row_index, col_index).value
             if cs.cell_type(row_index, col_index) == xlrd.XL_CELL_DATE:
@@ -38,8 +39,8 @@ def stops():
             else:
                 stop.append(cell_val)
         print(stop[3])
+        return(stop)
         for stop[3] in stop:
-            i = 1
             if stop[3] == i:
                 route.append(stop)
             else:
