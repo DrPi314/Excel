@@ -27,25 +27,22 @@ def numrows():
     
 
 def stops():
+    i = 1
     for row_index in range(hr, numrows() + hr):
-        stop = []
-        route = []
-        i = 1
-        for col_index in range(1,6): 
-            cell_val = cs.cell(row_index, col_index).value
-            if cs.cell_type(row_index, col_index) == xlrd.XL_CELL_DATE:
-                my_time = float(cell_val*24)
-                stop.append(my_time)
-            else:
-                stop.append(cell_val)
-        print(stop[3])
-        return(stop)
-        for stop[3] in stop:
-            if stop[3] == i:
-                route.append(stop)
-            else:
-                routes_t.append(route)
-                i += 1
+        route_num = cs.cell(row_index, 4).value
+        while (route_num > 1):
+            for col_index in range(1,6): 
+                stop = []
+                cell_val = cs.cell(row_index, col_index).value
+                if cs.cell_type(row_index, col_index) == xlrd.XL_CELL_DATE:
+                    my_time = float(cell_val*24)
+                    stop.append(my_time)
+                else:
+                    stop.append(cell_val)
+                print(stop[3])
+            route_num.append([])
+            i += 1
+        routes_t[i - 1].append(cs.cell(row_index, 5).value)
     return(routes_t)
 
            
