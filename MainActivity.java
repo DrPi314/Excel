@@ -8,110 +8,74 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button equipment;
-    private Button time;
-    private Button meals;
-    private Button mileage;
-    private Button fuel;
-    private Button maintenance;
-    private Button settings;
+    public Button equipment;
+    public Button time;
+    public Button meals;
+    public Button mileage;
+    public Button fuel;
+    public Button maintenance;
+    public Button settings;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        equipment = (Button) findViewById(R.id.btnEquip);
+        time = (Button) findViewById(R.id.btnTime);
+        meals = (Button) findViewById(R.id.btnMeal);
+        mileage = (Button) findViewById(R.id.btnMiles);
+        fuel = (Button) findViewById(R.id.btnFuel);
+        maintenance = (Button) findViewById(R.id.btnMaint);
+        settings = (Button) findViewById(R.id.btnSettings);
 
         equipment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                activity_equipment();
+                startActivity(new Intent(MainActivity.this, Equipment.class));
             }
         });
-
-        Button equipment = (Button) findViewById(R.id.btnEquip);
-        Button time = (Button) findViewById(R.id.btnTime);
-        Button meals = (Button) findViewById(R.id.btnMeal);
-        Button mileage = (Button) findViewById(R.id.btnMiles);
-        Button fuel = (Button) findViewById(R.id.btnFuel);
-        Button maintenance = (Button) findViewById(R.id.btnMaint);
-        Button settings = (Button) findViewById(R.id.btnSettings);
 
         time.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                activity_time();
+                startActivity(new Intent(MainActivity.this, Time.class));
             }
         });
 
         meals.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                activity_meal();
+                startActivity(new Intent(MainActivity.this, Meals.class));
             }
         });
 
         mileage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                activity_mileage();
+                startActivity(new Intent(MainActivity.this, Mileage.class));
             }
         });
 
         fuel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                activity_fuel();
+                startActivity(new Intent(MainActivity.this, Fuel.class));
             }
         });
 
         maintenance.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                activity_maintenance();
+                startActivity(new Intent(MainActivity.this, Maintenance.class));
             }
         });
 
         settings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                activity_settings();
+                startActivity(new Intent(MainActivity.this, Settings.class));
             }
         });
-    }
-
-    public void activity_mileage() {
-        Intent intent = new Intent(MainActivity.this, Mileage.class);
-        startActivity(intent);
-    }
-
-    public void activity_time() {
-        Intent intent = new Intent(this, Time.class);
-        startActivity(intent);
-    }
-
-    public void activity_meal() {
-        Intent intent = new Intent(this, Meals.class);
-        startActivity(intent);
-    }
-
-    public void activity_equipment() {
-        Intent intent = new Intent(this, Equipment.class);
-        startActivity(intent);
-    }
-
-    public void activity_fuel() {
-        Intent intent = new Intent(this, Fuel.class);
-        startActivity(intent);
-    }
-
-    public void activity_maintenance() {
-        Intent intent = new Intent(this, Maintenance.class);
-        startActivity(intent);
-    }
-
-    public void activity_settings() {
-        Intent intent = new Intent(this, Settings.class);
-        startActivity(intent);
     }
 }
